@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "t_sgp_mensajes_cab")
 public class MensajeCabecera {
 	@Id
-	private Integer codigo;
+	private Integer cod;
 	private String cod_afiliado;
 	private Integer cod_estado;
 	private Integer cod_tipo;
@@ -19,11 +19,12 @@ public class MensajeCabecera {
 	private String chat_id;
 	private String cod_alternativo;
 	private char origen;
+	
 	public Integer getCodigo() {
-		return codigo;
+		return cod;
 	}
 	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+		this.cod = codigo;
 	}
 	public String getCod_afiliado() {
 		return cod_afiliado;
@@ -76,7 +77,7 @@ public class MensajeCabecera {
 	
 	@Override
 	public String toString() {
-		return "MensajeCabecera [codigo=" + codigo + ", cod_afiliado=" + cod_afiliado + ", cod_estado=" + cod_estado
+		return "MensajeCabecera [codigo=" + cod + ", cod_afiliado=" + cod_afiliado + ", cod_estado=" + cod_estado
 				+ ", cod_tipo=" + cod_tipo + ", fecha_cierre=" + fecha_cierre + ", cod_usuario_actual="
 				+ cod_usuario_actual + ", chat_id=" + chat_id + ", cod_alternativo=" + cod_alternativo + ", origen="
 				+ origen + "]";

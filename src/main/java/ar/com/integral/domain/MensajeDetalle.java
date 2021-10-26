@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "t_sgp_mensajes_det")
 public class MensajeDetalle{
 	@Id
-	private Integer codigo;
+	private Integer cod;
 	private String mensaje;
 	private Date fechaEmision;
 	private String codEmisor;
@@ -26,13 +26,13 @@ public class MensajeDetalle{
 	
 	
 	public Integer getCodigo() {
-		return codigo;
+		return cod;
 	}
 
 
 
 	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+		this.cod = codigo;
 	}
 
 
@@ -171,7 +171,7 @@ public class MensajeDetalle{
 
 	@Override
 	public String toString() {
-		return "t_sgp_mensajes_det [codigo=" + codigo + ", mensaje=" + mensaje + ", fechaEmision=" + fechaEmision
+		return "t_sgp_mensajes_det [codigo=" + cod + ", mensaje=" + mensaje + ", fechaEmision=" + fechaEmision
 				+ ", codEmisor=" + codEmisor + ", codSala=" + codSala + ", cod_cab=" + cod_cab + ", fec_apertura="
 				+ fec_apertura + ", fec_cierre=" + fec_cierre + ", fecha_carga=" + fecha_carga + ", id_mensaje_chatapi="
 				+ id_mensaje_chatapi + ", quoted_msg_body=" + quoted_msg_body + ", quoted_msg_id=" + quoted_msg_id
