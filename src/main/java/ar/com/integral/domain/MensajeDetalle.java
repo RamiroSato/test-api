@@ -6,32 +6,45 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "t_sgp_mensajes_det")
 public class MensajeDetalle{
-	@Id
-	private Integer cod;
+	@Id @JsonProperty
+	private Long cod;
+	@JsonProperty
 	private String mensaje;
+	@JsonProperty
 	private Date fechaEmision;
+	@JsonProperty
 	private String codEmisor;
+	@JsonProperty
 	private String codSala;
+	@JsonProperty
 	private Long cod_cab;
+	@JsonProperty
 	private Date fec_apertura;
+	@JsonProperty
 	private Date fec_cierre;
+	@JsonProperty
 	private Date fecha_carga;
+	@JsonProperty
 	private String id_mensaje_chatapi;
+	@JsonProperty
 	private String quoted_msg_body;
+	@JsonProperty
 	private String quoted_msg_id;
 	
 	
 	
-	public Integer getCodigo() {
+	public Long getCodigo() {
 		return cod;
 	}
 
 
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Long codigo) {
 		this.cod = codigo;
 	}
 

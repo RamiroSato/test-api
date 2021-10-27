@@ -6,24 +6,49 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 @Table(name = "t_sgp_mensajes_cab")
 public class MensajeCabecera {
-	@Id
-	private Integer cod;
+	@Id @JsonProperty
+	private Long cod;
+	@JsonProperty
 	private String cod_afiliado;
+	@JsonProperty
 	private Integer cod_estado;
+	@JsonProperty
 	private Integer cod_tipo;
+	@JsonProperty
 	private Date fecha_cierre;
+	@JsonProperty
 	private Integer cod_usuario_actual;
+	@JsonProperty
 	private String chat_id;
+	@JsonProperty
 	private String cod_alternativo;
-	private char origen;
+	@JsonProperty
+	private Character origen;
 	
-	public Integer getCodigo() {
+	public MensajeCabecera() {};
+
+	public MensajeCabecera(Long cod, String cod_afiliado, Integer cod_estado, Integer cod_tipo, Date fecha_cierre,
+			Integer cod_usuario_actual, String chat_id, String cod_alternativo, Character origen) {
+		this.cod = cod;
+		this.cod_afiliado = cod_afiliado;
+		this.cod_estado = cod_estado;
+		this.cod_tipo = cod_tipo;
+		this.fecha_cierre = fecha_cierre;
+		this.cod_usuario_actual = cod_usuario_actual;
+		this.chat_id = chat_id;
+		this.cod_alternativo = cod_alternativo;
+		this.origen = origen;
+	}
+	public Long getCodigo() {
 		return cod;
 	}
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Long codigo) {
 		this.cod = codigo;
 	}
 	public String getCod_afiliado() {
@@ -68,10 +93,10 @@ public class MensajeCabecera {
 	public void setCod_alternativo(String cod_alternativo) {
 		this.cod_alternativo = cod_alternativo;
 	}
-	public char getOrigen() {
+	public Character getOrigen() {
 		return origen;
 	}
-	public void setOrigen(char origen) {
+	public void setOrigen(Character origen) {
 		this.origen = origen;
 	}
 	
