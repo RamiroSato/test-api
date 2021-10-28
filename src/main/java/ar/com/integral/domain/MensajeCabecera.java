@@ -3,16 +3,20 @@ package ar.com.integral.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.springframework.data.annotation.ReadOnlyProperty;
+
 
 @Entity
 @Table(name = "t_sgp_mensajes_cab")
 public class MensajeCabecera {
-	@Id @JsonProperty
+	@Id @JsonProperty @GeneratedValue(strategy = GenerationType.IDENTITY) @ReadOnlyProperty
 	private Long cod;
 	@JsonProperty
 	private String cod_afiliado;
@@ -33,9 +37,8 @@ public class MensajeCabecera {
 	
 	public MensajeCabecera() {};
 
-	public MensajeCabecera(Long cod, String cod_afiliado, Integer cod_estado, Integer cod_tipo, Date fecha_cierre,
+	public MensajeCabecera(String cod_afiliado, Integer cod_estado, Integer cod_tipo, Date fecha_cierre,
 			Integer cod_usuario_actual, String chat_id, String cod_alternativo, Character origen) {
-		this.cod = cod;
 		this.cod_afiliado = cod_afiliado;
 		this.cod_estado = cod_estado;
 		this.cod_tipo = cod_tipo;
@@ -45,12 +48,10 @@ public class MensajeCabecera {
 		this.cod_alternativo = cod_alternativo;
 		this.origen = origen;
 	}
-	public Long getCodigo() {
+	public Long getCod() {
 		return cod;
 	}
-	public void setCodigo(Long codigo) {
-		this.cod = codigo;
-	}
+
 	public String getCod_afiliado() {
 		return cod_afiliado;
 	}
@@ -108,4 +109,14 @@ public class MensajeCabecera {
 				+ origen + "]";
 	}
 	
+	public void update(MensajeCabecera mensajeCabecera) { //Actualiza los valores de la instancia actual con los de la instancia pasada como parametro, no actualiza la id
+		this.cod_afiliado = mensajeCabecera.getCod_afiliado();
+		this.cod_estado = mensajeCabecera.getCod_estado();
+		this.cod_tipo = mensajeCabecera.getCod_tipo();
+		this.fecha_cierre = mensajeCabecera.getFecha_cierre();
+		this.cod_usuario_actual = mensajeCabecera.getCod_usuario_actual();
+		this.chat_id = mensajeCabecera.getChat_id();
+		this.cod_alternativo = mensajeCabecera.getCod_alternativo();
+		this.origen = mensajeCabecera.getOrigen();
+	}
 }
